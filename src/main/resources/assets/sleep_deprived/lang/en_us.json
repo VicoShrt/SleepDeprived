@@ -1,0 +1,27 @@
+{
+  "item.diversdreams.dive_fins": "Dive Fins",
+  "item.diversdreams.rubber": "Rubber",
+  "item.diversdreams.latex": "Latex",
+  "item.diversdreams.barometer": "Barometer",
+  "item.diversdreams.raw_bauxite": "Raw Bauxite",
+  "item.diversdreams.raw_aluminium": "Raw Aluminium",
+  "item.diversdreams.aluminium_ingot": "Aluminium Ingot",
+  "item.diversdreams.latex_cutter": "Latex Cutter",
+  "item.diversdreams.breather": "Breather",
+  "item.diversdreams.air_tank": "Air Tank",
+  "item.diversdreams.swim_leggings": "Swim Leggings",
+  "item.diversdreams.swim_fins": "Swim Fins",
+
+  "block.diversdreams.rubber_block": "Rubber Block",
+  "block.diversdreams.bauxite_ore": "Bauxite Ore",
+  "block.diversdreams.bauxite_deepslate_ore": "Bauxite Deepslate Ore",
+
+  "creativetab.diversdreams": "Divers Dreams",
+
+  "tooltip.diversdreams.barometer": "Right-Click to measure the current water pressure\nAlso shows the remaining air in the tank, if you have one",
+  "tooltip.diversdreams.latex_cutter": "Right-Click latex sources to extract",
+
+  "text.diversdreams.water_pressure": "Water Pressure",
+  "text.diversdreams.no_air_tank": "No Air Tank",
+  "text.diversdreams.remaining_air": "Remaining Air:"
+}

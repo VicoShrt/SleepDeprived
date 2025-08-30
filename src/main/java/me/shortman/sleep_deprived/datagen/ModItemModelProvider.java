@@ -40,6 +40,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         handheldItem(ModItems.ENERGY_DRINK.get());
+        handheldItem(ModItems.SLEEPING_PILLS.get());
     }
 
     // Helper

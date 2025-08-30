@@ -12,12 +12,12 @@ public class ModFoodProperties {
 
     public static final FoodProperties ENERGY_DRINK = new FoodProperties.Builder()
             .nutrition(2)
-            .saturationModifier(0f)
+            .saturationModifier(0.5f)
             .alwaysEdible()
             .effect(() -> new MobEffectInstance(ModEffects.AWAKE_EFFECT, ENERGY_AWAKE_DURATION, 0, false, false), 1f)
-            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 400, 1, false, false), 0.8f)
-            .effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 200, 0, false, false), 0.1f)
-            .effect(() -> new MobEffectInstance(MobEffects.JUMP, 400, 0, false, false), 0.2f)
-            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 200, 0, false, false), 0.1f)
+            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 400,         0, false, false), 0.5f)
+            .effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 200,              0, false, false), 0.1f)
+            .effect(() -> new MobEffectInstance(MobEffects.JUMP, 400,                   0, false, false), 0.5f)
+            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 200,           0, false, false), 0.1f)
             .build();
 }

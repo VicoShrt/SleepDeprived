@@ -18,6 +18,8 @@ public class ModSounds {
 
     public static final Supplier<SoundEvent> YAWN = registerSoundEvent("yawn");
 
+    public static final Supplier<SoundEvent> SLEEPING_PILLS = registerSoundEvent("sleeping_pills");
+
     private static Supplier<SoundEvent> registerSoundEvent(String name) {
         ResourceLocation id = ResourceLocation.fromNamespaceAndPath(SleepDeprived.MOD_ID, name);
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(id));

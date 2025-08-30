@@ -1,7 +1,13 @@
 {
   "creativetab.sleep_deprived": "Sleep Deprived",
 
-  "item.sleep_deprived.energy_drink": "Zombie Energy",
+  "item.sleep_deprived.energy_drink": "Red Horse Energy",
+  "item.sleep_deprived.sleeping_pills": "Sleeping Pills",
+
+  "tooltip.sleep_deprived.energy_drink_1": "From ancient times...",
+  "tooltip.sleep_deprived.energy_drink_2": "Stay awake and forget your fatigue!",
+  "tooltip.sleep_deprived.sleeping_pills_1": "From ancient times...",
+  "tooltip.sleep_deprived.sleeping_pills_2": "If you really need to sleep!",
 
   "effect.sleep_deprived.sleep_deprived": "Sleep Deprived",
   "effect.sleep_deprived.awake": "Awake",
@@ -11,5 +17,7 @@
   "player.sleep_deprived.seconds_since_last_slept": "Seconds since last sleep",
   "player.sleep_deprived.cant_sleep": "You can't sleep right now!",
   "player.sleep_deprived.well_rested": "You are well rested!"
+
+
 
 }

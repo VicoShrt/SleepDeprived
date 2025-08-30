@@ -23,6 +23,7 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.sleep_deprived"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.ENERGY_DRINK.get());
+                        output.accept(ModItems.SLEEPING_PILLS.get());
                     })
                     .build());
 

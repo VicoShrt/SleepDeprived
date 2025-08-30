@@ -1,0 +1,9 @@
+{
+  "yawn": {
+    "subtitle": "sounds.sleep_deprived.yawn",
+    "sounds": [
+      "sleep_deprived:yawn_1",
+      "sleep_deprived:yawn_2"
+    ]
+  }
+}

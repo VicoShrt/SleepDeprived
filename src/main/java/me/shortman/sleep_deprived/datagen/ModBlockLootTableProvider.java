@@ -27,12 +27,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        dropSelf(ModBlocks.RUBBER_BLOCK.get());
 
-        add(ModBlocks.BAUXITE_ORE.get(),
-                block -> createMultipleOreDrops(ModBlocks.BAUXITE_ORE.get(), ModItems.RAW_BAUXITE.get(), 1, 2));
-        add(ModBlocks.BAUXITE_DEEPSLATE_ORE.get(),
-                block -> createMultipleOreDrops(ModBlocks.BAUXITE_DEEPSLATE_ORE.get(), ModItems.RAW_BAUXITE.get(), 2, 3));
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

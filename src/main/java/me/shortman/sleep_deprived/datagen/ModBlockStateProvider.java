@@ -15,9 +15,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        blockWithItem(ModBlocks.RUBBER_BLOCK);
-        blockWithItem(ModBlocks.BAUXITE_ORE);
-        blockWithItem(ModBlocks.BAUXITE_DEEPSLATE_ORE);
+
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock) {

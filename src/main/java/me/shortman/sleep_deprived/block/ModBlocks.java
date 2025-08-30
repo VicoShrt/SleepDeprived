@@ -17,14 +17,7 @@ public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(SleepDeprived.MOD_ID);
 
     // Block registry
-    public static final DeferredBlock<Block> RUBBER_BLOCK = registerBlock("rubber_block",
-            () -> new Block(BlockBehaviour.Properties.of().strength(1f).sound(SoundType.CANDLE)));
 
-    public static final DeferredBlock<Block> BAUXITE_ORE = registerBlock("bauxite_ore",
-            () -> new Block(BlockBehaviour.Properties.of().strength(1f).sound(SoundType.CANDLE)));
-
-    public static final DeferredBlock<Block> BAUXITE_DEEPSLATE_ORE = registerBlock("bauxite_deepslate_ore",
-            () -> new Block(BlockBehaviour.Properties.of().strength(1f).sound(SoundType.CANDLE)));
 
 
     // Helpers

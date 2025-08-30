@@ -39,19 +39,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        basicItem(ModItems.RAW_BAUXITE.get());
-        basicItem(ModItems.ALUMINIUM.get());
-        basicItem(ModItems.ALUMINIUM_INGOT.get());
-        basicItem(ModItems.LATEX.get());
-        basicItem(ModItems.RUBBER.get());
-
-        basicItem(ModItems.LATEX_CUTTER.get());
-        basicItem(ModItems.BAROMETER.get());
-
-        basicItem(ModItems.BREATHER.get());
-        basicItem(ModItems.AIR_TANK.get());
-        basicItem(ModItems.SWIM_LEGGINGS.get());
-        basicItem(ModItems.SWIM_FINS.get());
+        handheldItem(ModItems.ENERGY_DRINK.get());
     }
 
     // Helper

@@ -6,6 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -16,26 +17,12 @@ public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TAB = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, SleepDeprived.MOD_ID);
 
     // Creative Tabs registry
-    public static final Supplier<CreativeModeTab> DIVERS_DREAMS = CREATIVE_MODE_TAB.register("divers_dreams_tab",
+    public static final Supplier<CreativeModeTab> SLEEP_DEPRIVED_TAB = CREATIVE_MODE_TAB.register("sleep_deprived_tab",
             () -> CreativeModeTab.builder()
-                    .icon(() -> new ItemStack(ModItems.BAROMETER.get()))
-                    .title(Component.translatable("creativetab.diversdreams"))
+                    .icon(() -> new ItemStack(ModItems.ENERGY_DRINK.get()))
+                    .title(Component.translatable("creativetab.sleep_deprived"))
                     .displayItems((itemDisplayParameters, output) -> {
-                        output.accept(ModBlocks.BAUXITE_ORE);
-                        output.accept(ModBlocks.BAUXITE_DEEPSLATE_ORE);
-                        output.accept(ModItems.RAW_BAUXITE);
-                        output.accept(ModItems.ALUMINIUM);
-                        output.accept(ModItems.ALUMINIUM_INGOT);
-                        output.accept(ModItems.LATEX_CUTTER);
-                        output.accept(ModItems.BAROMETER);
-                        output.accept(ModItems.RUBBER);
-                        output.accept(ModItems.LATEX);
-                        output.accept(ModBlocks.RUBBER_BLOCK);
-                        output.accept(ModItems.RUBBER);
-                        output.accept(ModItems.BREATHER);
-                        output.accept(ModItems.AIR_TANK);
-                        output.accept(ModItems.SWIM_LEGGINGS);
-                        output.accept(ModItems.SWIM_FINS);
+                        output.accept(ModItems.ENERGY_DRINK.get());
                     })
                     .build());
 

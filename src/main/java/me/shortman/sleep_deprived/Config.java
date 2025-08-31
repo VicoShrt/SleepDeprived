@@ -15,14 +15,17 @@ public class Config {
             .comment("Enable Debug mode.")
             .define("debug", false);
 
-    public static final ModConfigSpec.IntValue MINUTES_UNTIL_SLEEP_DEPRIVED = BUILDER
+    public static final ModConfigSpec.IntValue FATIGUE_THRESHOLD = BUILDER
             .comment("Minutes until sleep deprived effect starts.")
-            .defineInRange("minutesUntilSleepDeprived", 40, 0, Integer.MAX_VALUE);
+            .defineInRange("fatigue_threshold", 40, 0, Integer.MAX_VALUE);
 
     public static final ModConfigSpec.IntValue MINUTES_TO_NEXT_STAGE = BUILDER
             .comment("Minutes until the next sleep deprived stage starts.")
-            .defineInRange("minutesToNextStage", 20, 0, Integer.MAX_VALUE);
+            .defineInRange("minutes_to_next_stage", 20, 0, Integer.MAX_VALUE);
 
+    public static final ModConfigSpec.IntValue AWAKE_AFTER_SLEEP = BUILDER
+            .comment("How many seconds should the awake effect be applied after sleep.")
+            .defineInRange("awake_after_sleep", 50, 0, Integer.MAX_VALUE);
 
     static final ModConfigSpec SPEC = BUILDER.build();
 

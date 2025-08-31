@@ -41,6 +41,8 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         handheldItem(ModItems.ENERGY_DRINK.get());
         handheldItem(ModItems.SLEEPING_PILLS.get());
+        handheldItem(ModItems.COFFEE_BEANS.get());
+        handheldItem(ModItems.COFFEE_SEEDS.get());
     }
 
     // Helper

@@ -3,6 +3,10 @@
 
   "item.sleep_deprived.energy_drink": "Red Horse Energy",
   "item.sleep_deprived.sleeping_pills": "Sleeping Pills",
+  "item.sleep_deprived.coffee_seeds": "Coffee Seeds",
+  "item.sleep_deprived.coffee_beans": "Coffee Beans",
+
+  "block.sleep_deprived.coffee_crop": "Coffee Crop",
 
   "tooltip.sleep_deprived.energy_drink_1": "From ancient times...",
   "tooltip.sleep_deprived.energy_drink_2": "Stay awake and forget your fatigue!",
@@ -16,7 +20,12 @@
 
   "player.sleep_deprived.seconds_since_last_slept": "Seconds since last sleep",
   "player.sleep_deprived.cant_sleep": "You can't sleep right now!",
-  "player.sleep_deprived.well_rested": "You are well rested!"
+  "player.sleep_deprived.well_rested": "You are well rested!",
+  "player.sleep_deprived.feel_fit": "You feel fit!",
+  "player.sleep_deprived.tired": "Tired",
+  "player.sleep_deprived.feel_exhausted": "You are exhausted!",
+  "player.sleep_deprived.need_to_sleep": "You really need to sleep!",
+  "tooltip.sleep_deprived.clock": "Right-Click to see your fatigue status"
 
 
 

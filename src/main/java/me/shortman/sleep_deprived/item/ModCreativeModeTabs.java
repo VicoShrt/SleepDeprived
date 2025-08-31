@@ -24,6 +24,8 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.ENERGY_DRINK.get());
                         output.accept(ModItems.SLEEPING_PILLS.get());
+                        output.accept(ModItems.COFFEE_SEEDS.get());
+                        output.accept(ModItems.COFFEE_BEANS.get());
                     })
                     .build());
 

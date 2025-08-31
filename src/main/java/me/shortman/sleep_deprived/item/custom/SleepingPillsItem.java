@@ -9,7 +9,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -21,7 +20,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.neoforged.fml.common.Mod;
 
 import java.util.List;
 
@@ -38,7 +36,7 @@ public class SleepingPillsItem extends Item {
             return InteractionResultHolder.success(usedItem);
         };
         CompoundTag data = player.getPersistentData();
-        data.putInt(ModEvents.TAG_NO_SLEEP_TICKS, SleepEvents.getStageThresholdOne());
+        data.putInt(ModEvents.TAG_FATIGUE_LEVEL, SleepEvents.getFatigueThresholdOne());
         player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 1, false, false));
         player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 0, false, false));
         if (player.hasEffect(ModEffects.AWAKE_EFFECT)) player.removeEffect(ModEffects.AWAKE_EFFECT);

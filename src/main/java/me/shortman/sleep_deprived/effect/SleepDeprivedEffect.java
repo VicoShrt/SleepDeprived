@@ -39,20 +39,16 @@ public class SleepDeprivedEffect extends MobEffect {
                         livingEntity.playSound(ModSounds.YAWN.get(), rand.getFloatBetween(2.5f, 3f), rand.getFloatBetween(0.9f, 1.1f));
                     }
             }
-        }
-
-        if (!isClient) {
+        } else {
             switch (amplifier) {
                 case 0:
-                    if (rand.isPercentageEnough(1f)) {
-                        livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, rand.getIntBetween(30, 60), 0, false, false));
-                    }
+                    break;
                 case 1:
-                    if (rand.isPercentageEnough(5f)) {
-                        livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, rand.getIntBetween(40, 70), 0, false, false));
+                    if (rand.isPercentageEnough(1f)) {
+                        livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, rand.getIntBetween(30, 70), 0, false, false));
                     }
                     if (rand.isPercentageEnough(1f)) {
-                        switch (rand.getIntBetween(1, 3)) {
+                        switch (rand.getIntBetween(1, 2)) {
                             case 1:
                                 livingEntity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, rand.getIntBetween(10 * TPS, 25 * TPS), 0, false, false));
                                 break;
@@ -63,9 +59,9 @@ public class SleepDeprivedEffect extends MobEffect {
                         }
                     }
                 case 2:
-                    if (rand.isPercentageEnough(10f)) {
+                    if (rand.isPercentageEnough(5f)) {
                         SleepDeprived.LOGGER.debug("BLINDNESS");
-                        livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, rand.getIntBetween(50, 80), 0, false, false));
+                        livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, rand.getIntBetween(40, 80), 0, false, false));
                     }
                     if (rand.isPercentageEnough(1f)) {
                         switch (rand.getIntBetween(1, 4)) {
@@ -91,6 +87,6 @@ public class SleepDeprivedEffect extends MobEffect {
 
     @Override
     public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
-        return duration % TPS == 0;
+        return true;
     }
 }

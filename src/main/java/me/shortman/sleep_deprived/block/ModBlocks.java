@@ -1,10 +1,12 @@
 package me.shortman.sleep_deprived.block;
 
 import me.shortman.sleep_deprived.SleepDeprived;
+import me.shortman.sleep_deprived.block.custom.CoffeeCropBlock;
 import me.shortman.sleep_deprived.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
@@ -17,7 +19,8 @@ public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(SleepDeprived.MOD_ID);
 
     // Block registry
-
+    public static final DeferredBlock<Block> COFFEE_CROP = BLOCKS.register("coffee_crop",
+            () -> new CoffeeCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BEETROOTS)));
 
 
     // Helpers

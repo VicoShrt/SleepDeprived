@@ -21,9 +21,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
-
-
-
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.PHANTOM_MEMBRANE, 5)
+                .requires(Items.HEART_OF_THE_SEA)
+                .requires(Items.DIAMOND)
+                .requires(Items.BLAZE_ROD)
+                .requires(Items.FEATHER)
+                .requires(Items.BONE)
+                .requires(Items.STRING)
+                .requires(Items.SPIDER_EYE)
+                .requires(Items.REDSTONE)
+                .requires(Items.INK_SAC)
+                .unlockedBy("has_diamond", has(Items.HEART_OF_THE_SEA))
+                .unlockedBy("has_diamond", has(Items.DIAMOND))
+                .unlockedBy("has_diamond", has(Items.BLAZE_ROD)).save(recipeOutput);
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,

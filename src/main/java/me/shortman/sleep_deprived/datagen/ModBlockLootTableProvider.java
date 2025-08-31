@@ -42,6 +42,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         this.add(ModBlocks.COFFEE_CROP.get(), this.createCropDrops(ModBlocks.COFFEE_CROP.get(),
                 ModItems.COFFEE_BEANS.get(), ModItems.COFFEE_SEEDS.get(), lootItemConditionBuilder));
+
+        this.dropOther(ModBlocks.COFFEE_BUSH.get(), ModItems.COFFEE_BEANS);
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

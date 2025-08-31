@@ -21,6 +21,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.COFFEE_SEEDS, 1)
+                .requires(ModItems.COFFEE_BEANS)
+                .unlockedBy("has_coffee_beans", has(ModItems.COFFEE_BEANS))
+                .save(recipeOutput);
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.PHANTOM_MEMBRANE, 5)
                 .requires(Items.HEART_OF_THE_SEA)
                 .requires(Items.DIAMOND)
@@ -33,7 +38,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(Items.INK_SAC)
                 .unlockedBy("has_diamond", has(Items.HEART_OF_THE_SEA))
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
-                .unlockedBy("has_diamond", has(Items.BLAZE_ROD)).save(recipeOutput);
+                .unlockedBy("has_diamond", has(Items.BLAZE_ROD))
+                .save(recipeOutput);
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,

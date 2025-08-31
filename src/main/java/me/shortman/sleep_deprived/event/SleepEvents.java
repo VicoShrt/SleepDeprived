@@ -100,15 +100,11 @@ public class SleepEvents {
     }
 
     public static void onPlayerClicksBed(PlayerInteractEvent.RightClickBlock event) {
-        if (!event.getLevel().isClientSide()) {
-            Player player = event.getEntity();
-            Level level = event.getLevel();
-            BlockPos pos = event.getPos();
-            boolean isBed = level.getBlockState(pos).isBed(level, pos, player);
-            if (isBed && player.hasEffect(ModEffects.AWAKE_EFFECT)) {
-                player.sendSystemMessage(Component.translatable("player.sleep_deprived.cant_sleep"));
-                event.setCanceled(true);
-            };
+        if (!event.getLevel().isClientSide() &&
+                event.getLevel().getBlockState(event.getPos()).isBed(event.getLevel(), event.getPos(), event.getEntity()) &&
+                event.getEntity().hasEffect(ModEffects.AWAKE_EFFECT)) {
+            event.getEntity().sendSystemMessage(Component.translatable("player.sleep_deprived.cant_sleep"));
+            event.setCanceled(true);
         }
     }
 }

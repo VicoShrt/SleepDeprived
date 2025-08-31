@@ -20,10 +20,10 @@ public class ModItems {
             () -> new SleepingPillsItem(new Item.Properties().durability(3)));
 
     public static final DeferredItem<Item> COFFEE_BEANS = ITEMS.register("coffee_beans",
-            () -> new Item(new Item.Properties()));
+            () -> new ItemNameBlockItem(ModBlocks.COFFEE_BUSH.get(), new Item.Properties()));
 
     public static final DeferredItem<Item> COFFEE_SEEDS = ITEMS.register("coffee_seeds",
-            () -> new ItemNameBlockItem(ModBlocks.COFFEE_CROP.get(), new Item.Properties()));
+            () -> new ItemNameBlockItem(ModBlocks.COFFEE_CROP.get(), new Item.Properties().food(ModFoodProperties.COFFEE_BEANS)));
 
     // Register Method
     public static void register(IEventBus eventBus) {

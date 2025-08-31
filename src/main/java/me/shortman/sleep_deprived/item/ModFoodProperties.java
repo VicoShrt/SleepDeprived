@@ -12,7 +12,7 @@ public class ModFoodProperties {
 
     public static final FoodProperties ENERGY_DRINK = new FoodProperties.Builder()
             .nutrition(2)
-            .saturationModifier(0.5f)
+            .saturationModifier(0.25f)
             .alwaysEdible()
             .effect(() -> new MobEffectInstance(ModEffects.AWAKE_EFFECT, ENERGY_AWAKE_DURATION, 0, false, false), 1f)
             .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 400,         0, false, false), 0.5f)
@@ -20,4 +20,14 @@ public class ModFoodProperties {
             .effect(() -> new MobEffectInstance(MobEffects.JUMP, 400,                   0, false, false), 0.5f)
             .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 200,           0, false, false), 0.1f)
             .build();
+
+    public static final FoodProperties COFFEE_BEANS = new FoodProperties.Builder()
+            .nutrition(1)
+            .saturationModifier(0)
+            .alwaysEdible()
+            .fast()
+            .effect(() -> new MobEffectInstance(ModEffects.AWAKE_EFFECT, 200, 0, false, false), 1f)
+            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 100, 0, false, false), 0.3f)
+            .build();
+
 }

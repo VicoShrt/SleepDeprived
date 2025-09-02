@@ -18,6 +18,9 @@ import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.tick.LevelTickEvent;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class SleepEvents {
     private static final RandomHelper rand = new RandomHelper();
 
@@ -26,7 +29,7 @@ public class SleepEvents {
 
     private static final int FATIGUE_THRESHOLD_ONE = SleepDeprived.CFG_FATIGUE_THRESHOLD * TPM;
     private static final int FATIGUE_THRESHOLD_TWO = (FATIGUE_THRESHOLD_ONE + SleepDeprived.CFG_MINUTES_TO_NEXT_STAGE * TPM) ;
-    private static final int FATIGUE_THRESHOLD_THREE = (FATIGUE_THRESHOLD_TWO + SleepDeprived.CFG_MINUTES_TO_NEXT_STAGE * TPM) ;
+    private static final int FATIGUE_THRESHOLD_THREE = (FATIGUE_THRESHOLD_TWO + SleepDeprived.CFG_MINUTES_TO_NEXT_STAGE * TPM);
 
     private static final int EFFECT_TIME = 10 * TPS;
     private static final int TICKS_TO_SLEEP_THROUGH = 90;
@@ -41,33 +44,37 @@ public class SleepEvents {
         for (ServerPlayer player : serverLevel.players()) {
             CompoundTag data = player.getPersistentData();
             int fatigueLevel = data.getInt(ModEvents.TAG_FATIGUE_LEVEL);
+            int ticksSinceLastSlept = data.getInt(ModEvents.TAG_TICKS_SINCE_LAST_SLEPT);
             int ticksSlept = data.getInt(ModEvents.TAG_SLEEP_TICKS);
             if (player.isSleeping()) {
                 data.putInt(ModEvents.TAG_SLEEP_TICKS, ticksSlept + 1);
                 if (ticksSlept >= TICKS_TO_SLEEP_THROUGH) {
                     data.putInt(ModEvents.TAG_FATIGUE_LEVEL, 0);
+                    data.putInt(ModEvents.TAG_TICKS_SINCE_LAST_SLEPT, 0);
                     player.addEffect(new MobEffectInstance(ModEffects.AWAKE_EFFECT, AWAKE_AFTER_SLEEP, 0, false, false));
                 }
             } else if (!player.hasEffect(ModEffects.AWAKE_EFFECT)) {
                 data.putInt(ModEvents.TAG_SLEEP_TICKS, 0);
                 data.putInt(ModEvents.TAG_FATIGUE_LEVEL, fatigueLevel + 1);
+                data.putInt(ModEvents.TAG_TICKS_SINCE_LAST_SLEPT, ticksSinceLastSlept + 1);
             }
 
             if (fatigueLevel % TPS == 0) {
                 // Add effect according to ticks not slept
                 boolean hasNotAwakeEffect = !player.hasEffect(ModEffects.AWAKE_EFFECT);
                 if ((fatigueLevel > (FATIGUE_THRESHOLD_ONE) && fatigueLevel <= FATIGUE_THRESHOLD_TWO) && hasNotAwakeEffect) {
+                    data.putInt(ModEvents.TAG_SLEEP_DEPRIVED_STAGE, 1);
                     player.addEffect(new MobEffectInstance(ModEffects.SLEEP_DEPRIVED_EFFECT, EFFECT_TIME, 0, false, false));
-                    player.sendSystemMessage(Component.literal("Stage 1"));
                 } else if ((fatigueLevel > (FATIGUE_THRESHOLD_TWO) && fatigueLevel <= FATIGUE_THRESHOLD_THREE) && hasNotAwakeEffect) {
+                    data.putInt(ModEvents.TAG_SLEEP_DEPRIVED_STAGE, 2);
                     player.addEffect(new MobEffectInstance(ModEffects.SLEEP_DEPRIVED_EFFECT, EFFECT_TIME, 1, false, false));
-                    player.sendSystemMessage(Component.literal("Stage 2"));
                 } else if ((fatigueLevel > FATIGUE_THRESHOLD_THREE) && hasNotAwakeEffect) {
+                    data.putInt(ModEvents.TAG_SLEEP_DEPRIVED_STAGE, 3);
                     player.addEffect(new MobEffectInstance(ModEffects.SLEEP_DEPRIVED_EFFECT, EFFECT_TIME, 2, false, false));
-                    player.sendSystemMessage(Component.literal("Stage 3"));
                 }
                 // Remove effect
                 if (fatigueLevel <= FATIGUE_THRESHOLD_ONE) {
+                    data.putInt(ModEvents.TAG_SLEEP_DEPRIVED_STAGE, 0);
                     player.removeEffect(ModEffects.SLEEP_DEPRIVED_EFFECT);
                 }
             }
@@ -82,20 +89,26 @@ public class SleepEvents {
         ItemStack stack = event.getItemStack();
         if (stack.is(Items.CLOCK)) {
             String msg;
-            int fatiguePercentageInt = (data.getInt(ModEvents.TAG_FATIGUE_LEVEL) / FATIGUE_THRESHOLD_ONE) * 100;
-            String fatiguePercentageStr = " (" + fatiguePercentageInt + "% " + Component.translatable("player.sleep_deprived.tired").getString() + ")";
+            int fatigueLevel = Math.min(data.getInt(ModEvents.TAG_FATIGUE_LEVEL), FATIGUE_THRESHOLD_ONE);
 
-            if (fatiguePercentageInt < 26) {
+            DecimalFormat df = new DecimalFormat("#.#");
+            df.setRoundingMode(RoundingMode.CEILING);
+
+            float fatiguePercentage = Math.min(((float) fatigueLevel / FATIGUE_THRESHOLD_ONE) * 100, 100);
+
+            String fatiguePercentageStr = " (" + df.format(fatiguePercentage) + "% " + Component.translatable("player.sleep_deprived.tired").getString() + ")";
+            String fatigueLevelToThresholdRatio =  fatigueLevel + "/" + FATIGUE_THRESHOLD_ONE;
+
+            if (fatiguePercentage < 26) {
                 msg = Component.translatable("player.sleep_deprived.well_rested").getString() + fatiguePercentageStr;
-            } else if (fatiguePercentageInt < 66) {
+            } else if (fatiguePercentage < 66) {
                 msg = Component.translatable("player.sleep_deprived.feel_fit").getString() + fatiguePercentageStr;
-            } else if (fatiguePercentageInt < 100) {
+            } else if (fatiguePercentage < 100) {
                 msg = Component.translatable("player.sleep_deprived.feel_exhausted").getString() + fatiguePercentageStr;
             } else {
                 msg = Component.translatable("player.sleep_deprived.need_to_sleep").getString() + fatiguePercentageStr;
             }
-
-            player.sendSystemMessage(Component.literal(msg));
+            player.sendSystemMessage(Component.literal(msg + " - " + fatigueLevelToThresholdRatio));
         }
     }
 

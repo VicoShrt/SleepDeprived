@@ -36,7 +36,8 @@ public class SleepingPillsItem extends Item {
             return InteractionResultHolder.success(usedItem);
         };
         CompoundTag data = player.getPersistentData();
-        data.putInt(ModEvents.TAG_FATIGUE_LEVEL, SleepEvents.getFatigueThresholdOne());
+        int fatigueLevel = data.getInt(ModEvents.TAG_FATIGUE_LEVEL);
+        data.putInt(ModEvents.TAG_FATIGUE_LEVEL, fatigueLevel + (SleepEvents.getFatigueThresholdOne() / 2));
         player.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 1, false, false));
         player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 0, false, false));
         if (player.hasEffect(ModEffects.AWAKE_EFFECT)) player.removeEffect(ModEffects.AWAKE_EFFECT);

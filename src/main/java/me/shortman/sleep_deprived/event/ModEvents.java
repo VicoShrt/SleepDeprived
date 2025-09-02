@@ -13,7 +13,9 @@ import net.neoforged.neoforge.event.tick.LevelTickEvent;
 @EventBusSubscriber(modid = SleepDeprived.MOD_ID)
 public class ModEvents {
     public static final String TAG_FATIGUE_LEVEL = "FatigueLevel";
+    public static final String TAG_TICKS_SINCE_LAST_SLEPT = "TicksSinceLastSlept";
     public static final String TAG_SLEEP_TICKS = "SleepTicks";
+    public static final String TAG_SLEEP_DEPRIVED_STAGE = "SleepDeprivedStage";
 
     @SubscribeEvent
     public static void onLevelTick(LevelTickEvent.Post event) {

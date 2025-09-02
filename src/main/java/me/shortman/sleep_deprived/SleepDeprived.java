@@ -36,8 +36,6 @@ public class SleepDeprived {
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public SleepDeprived(IEventBus modEventBus, ModContainer modContainer) {
-        LOGGER.atLevel(getLogLevel());
-
         modEventBus.addListener(this::commonSetup);
         NeoForge.EVENT_BUS.register(this);
 
@@ -73,6 +71,6 @@ public class SleepDeprived {
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        LOGGER.debug("Mod Started");
+        LOGGER.debug(MOD_ID + " server started...");
     }
 }

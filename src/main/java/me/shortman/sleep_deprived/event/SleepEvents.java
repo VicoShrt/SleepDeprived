@@ -1,5 +1,6 @@
 package me.shortman.sleep_deprived.event;
 
+import me.shortman.sleep_deprived.Config;
 import me.shortman.sleep_deprived.SleepDeprived;
 import me.shortman.sleep_deprived.effect.ModEffects;
 import me.shortman.sleep_deprived.lib.Constants;
@@ -27,13 +28,13 @@ public class SleepEvents {
     private static final int TPS = Constants.TICKS_PER_SECOND;
     private static final int TPM = Constants.TICKS_PER_MINUTE;
 
-    private static final int FATIGUE_THRESHOLD_ONE = SleepDeprived.CFG_FATIGUE_THRESHOLD * TPM;
-    private static final int FATIGUE_THRESHOLD_TWO = (FATIGUE_THRESHOLD_ONE + SleepDeprived.CFG_MINUTES_TO_NEXT_STAGE * TPM) ;
-    private static final int FATIGUE_THRESHOLD_THREE = (FATIGUE_THRESHOLD_TWO + SleepDeprived.CFG_MINUTES_TO_NEXT_STAGE * TPM);
+    private static final int FATIGUE_THRESHOLD_ONE = Config.FATIGUE_THRESHOLD.getAsInt() * TPM;
+    private static final int FATIGUE_THRESHOLD_TWO = (FATIGUE_THRESHOLD_ONE + Config.MINUTES_TO_NEXT_STAGE.getAsInt() * TPM) ;
+    private static final int FATIGUE_THRESHOLD_THREE = (FATIGUE_THRESHOLD_TWO + Config.MINUTES_TO_NEXT_STAGE.getAsInt() * TPM);
 
     private static final int EFFECT_TIME = 10 * TPS;
     private static final int TICKS_TO_SLEEP_THROUGH = 90;
-    private static final int AWAKE_AFTER_SLEEP = SleepDeprived.CFG_AWAKE_AFTER_SLEEP * TPS;
+    private static final int AWAKE_AFTER_SLEEP = Config.AWAKE_AFTER_SLEEP.getAsInt() * TPS;
 
     public static int getFatigueThresholdOne() {
         return FATIGUE_THRESHOLD_ONE;

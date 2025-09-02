@@ -25,11 +25,6 @@ import org.slf4j.event.Level;
 @Mod(SleepDeprived.MOD_ID)
 public class SleepDeprived {
     public static final String MOD_ID = "sleep_deprived";
-    // Backup Config Setup
-    public static boolean CFG_DEBUG = true;
-    public static int CFG_FATIGUE_THRESHOLD = 40;
-    public static int CFG_MINUTES_TO_NEXT_STAGE = 20;
-    public static int CFG_AWAKE_AFTER_SLEEP = 50;
 
     public static final Logger LOGGER = LogUtils.getLogger();
 
@@ -47,25 +42,11 @@ public class SleepDeprived {
         ModPotions.register(modEventBus);
         ModSounds.register(modEventBus);
 
-        modEventBus.addListener(this::addCreative);
-
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
 
-    }
-
-    // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
-    }
-
-    public Level getLogLevel() {
-        if (CFG_DEBUG) {
-            return Level.DEBUG;
-        }
-        return Level.INFO;
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

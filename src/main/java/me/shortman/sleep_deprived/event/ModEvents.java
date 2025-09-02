@@ -25,6 +25,7 @@ public class ModEvents {
     @SubscribeEvent
     public static void onRightClickItem(PlayerInteractEvent.RightClickItem event) {
         SleepEvents.onRightClickItem(event);
+        DebugEvents.onRightClickItem(event);
     }
 
     @SubscribeEvent

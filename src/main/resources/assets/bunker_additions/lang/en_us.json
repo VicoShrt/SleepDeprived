@@ -1,0 +1,33 @@
+{
+  "creativetab.bunker_additions": "Bunker Additions",
+
+  "block.bunker_additions.drying_table": "Drying Table",
+
+  "item.bunker_additions.pills": "Pills",
+
+  "item.bunker_additions.hemp_string": "Hemp String",
+  "item.bunker_additions.hemp_seeds": "Hemp Seeds",
+  "item.bunker_additions.raw_weed_bud": "Raw Weed Bud",
+  "item.bunker_additions.wet_weed_bud": "Wet Weed Bud",
+  "item.bunker_additions.weed_bud": "Weed Bud",
+
+  "item.bunker_additions.tobacco_seed": "Tobacco Seeds",
+  "item.bunker_additions.tobacco_leaf": "Tobacco Leaf",
+  "item.bunker_additions.tobacco_dried_leaf": "Dried Tobacco Leaf",
+
+  "item.bunker_additions.beer_bottle": "Beer Bottle",
+  "item.bunker_additions.wine_bottle": "Wine Bottle",
+
+  "item.bunker_additions.rhastafarian_music_disc": "Rhastafarian Music Disc",
+  "item.bunker_additions.rhastafarian_music_disc.desc": "Jason Shaw - Rhastafarian",
+
+  "block.bunker_additions.hemp_crop": "Hemp Crop",
+
+  "sounds.bunker_additions.rhastafarian": "Rhastafarian by Jason Shaw",
+  "sounds.bunker_additions.pills_open": "Open pills box",
+  "sounds.bunker_additions.pills_take": "Take pills",
+  "sounds.bunker_additions.pills_close": "Close pills box",
+
+
+  "tooltip.bunker_additions.pills": "Gives you (mostly) positive effects."
+}

@@ -1,0 +1,30 @@
+{
+  "pills": {
+    "subtitle": "sounds.bunker_additions.pills",
+    "sounds": [
+      "bunker_additions:pills"
+    ]
+  },
+  "pills_open": {
+    "subtitle": "sounds.bunker_additions.pills_open",
+    "sounds": [
+      "bunker_additions:pills_open1",
+      "bunker_additions:pills_open2"
+    ]
+  },
+  "pills_close": {
+    "subtitle": "sounds.bunker_additions.pills_close",
+    "sounds": [
+      "bunker_additions:pills_close1",
+      "bunker_additions:pills_close2"
+    ]
+  },
+  "rhastafarian": {
+    "sounds": [
+      {
+        "name": "bunker_additions:rhastafarian",
+        "stream": true
+      }
+    ]
+  }
+}

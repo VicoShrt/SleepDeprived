@@ -150,8 +150,11 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-    //localRuntime "curse.maven:thirst-was-taken-679270:${thirst_id}"
 
+    compileOnly("curse.maven:farmers-delight-${farmers_id}:${farmers_version}")
+    runtimeOnly("curse.maven:farmers-delight-${farmers_id}:${farmers_version}")
+
+    //localRuntime "curse.maven:thirst-was-taken-679270:${thirst_id}"
     compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
     // at runtime, use the full JEI jar for NeoForge
     runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")

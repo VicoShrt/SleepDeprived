@@ -1,7 +1,7 @@
 package me.shortman.bunker_additions.common.registry;
 
 import me.shortman.bunker_additions.BunkerAdditions;
-import me.shortman.bunker_additions.common.block.DryingTable;
+import me.shortman.bunker_additions.common.block.DryingTableBlock;
 import me.shortman.bunker_additions.common.block.HempCropBlock;
 import me.shortman.bunker_additions.common.block.TobaccoCropBlock;
 import net.minecraft.world.item.BlockItem;
@@ -20,7 +20,7 @@ public class ModBlocks {
 
     // Block registry
     public static final DeferredBlock<Block> DRYING_TABLE = registerBlock("drying_table",
-            () -> new DryingTable(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+            () -> new DryingTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
 
     public static final DeferredBlock<Block> HEMP_CROP = BLOCKS.register("hemp_crop",
             () -> new HempCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT)));

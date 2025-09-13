@@ -154,6 +154,9 @@ dependencies {
     compileOnly("curse.maven:farmers-delight-${farmers_id}:${farmers_version}")
     runtimeOnly("curse.maven:farmers-delight-${farmers_id}:${farmers_version}")
 
+    compileOnly("curse.maven:thirst-${thirst_id}:${thirst_version}")
+    runtimeOnly("curse.maven:thirst-${thirst_id}:${thirst_version}")
+
     //localRuntime "curse.maven:thirst-was-taken-679270:${thirst_id}"
     compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
     // at runtime, use the full JEI jar for NeoForge

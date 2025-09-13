@@ -5,21 +5,35 @@
 
   "item.bunker_additions.pills": "Pills",
 
+
   "item.bunker_additions.hemp_string": "Hemp String",
   "item.bunker_additions.hemp_seeds": "Hemp Seeds",
   "item.bunker_additions.raw_weed_bud": "Raw Weed Bud",
   "item.bunker_additions.wet_weed_bud": "Wet Weed Bud",
   "item.bunker_additions.weed_bud": "Weed Bud",
+  "item.bunker_additions.weed_bowl": "Weed Bowl",
 
-  "item.bunker_additions.tobacco_seed": "Tobacco Seeds",
+  "item.bunker_additions.tobacco_seeds": "Tobacco Seeds",
   "item.bunker_additions.tobacco_leaf": "Tobacco Leaf",
   "item.bunker_additions.tobacco_dried_leaf": "Dried Tobacco Leaf",
+  "item.bunker_additions.tobacco_bowl": "Tobacco Bowl",
+
 
   "item.bunker_additions.beer_bottle": "Beer Bottle",
   "item.bunker_additions.wine_bottle": "Wine Bottle",
 
+  "item.bunker_additions.cigar": "Cigar",
+  "item.bunker_additions.cigarette": "Cigarette",
+  "item.bunker_additions.joint": "Joint",
+  "item.bunker_additions.blunt": "Blunt",
+
+  "item.bunker_additions.firefighter_axe": "Firefighter Axe",
+  "item.bunker_additions.screwdriver": "Screwdriver",
+  "item.bunker_additions.can_opener": "Can Opener",
+
   "item.bunker_additions.rhastafarian_music_disc": "Rhastafarian Music Disc",
   "item.bunker_additions.rhastafarian_music_disc.desc": "Jason Shaw - Rhastafarian",
+  "item.bunker_additions.can_red": "Red Food Can",
 
   "block.bunker_additions.hemp_crop": "Hemp Crop",
 
@@ -29,5 +43,9 @@
   "sounds.bunker_additions.pills_close": "Close pills box",
 
 
-  "tooltip.bunker_additions.pills": "Gives you (mostly) positive effects."
+  "tooltip.bunker_additions.pills": "Gives you (mostly) positive effects.",
+  "creativetab.bunker_additions.nature": "Nature",
+  "creativetab.bunker_additions.consumables": "Consumables",
+  "creativetab.bunker_additions.tools": "Tools",
+  "creativetab.bunker_additions.items": "Items"
 }

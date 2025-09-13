@@ -1,4 +1,10 @@
 {
+  "can_open": {
+    "subtitle": "sounds.bunker_additions.can_open",
+    "sounds": [
+      "bunker_additions:can_open"
+    ]
+  },
   "pills": {
     "subtitle": "sounds.bunker_additions.pills",
     "sounds": [

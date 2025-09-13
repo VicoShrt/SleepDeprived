@@ -16,6 +16,7 @@ public class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
             DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, BunkerAdditions.MOD_ID);
 
+    public static final Supplier<SoundEvent> CAN_OPEN = registerSoundEvent("can_open");
 
     public static final Supplier<SoundEvent> PILLS = registerSoundEvent("pills");
     public static final Supplier<SoundEvent> PILLS_OPEN = registerSoundEvent("pills_open");

@@ -9,15 +9,20 @@ import net.neoforged.fml.ModList;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
 public class FarmersDelightIntegration {
-    public static boolean IS_LOADED = false;
+    private static boolean IS_LOADED = false;
     public static void register(IEventBus modBus) {
         if (ModList.get().isLoaded("farmersdelight")) {
             IS_LOADED = true;
         }
     }
 
+    public static boolean isLoaded() {
+        return IS_LOADED;
+    }
+
     public static void crafting(RecipeOutput recipeOutput) {
-        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ModItems.RAW_WEED_BUD), Ingredient.of(Items.SHEARS), ModItems.WEED_BUD)
+        if (!isLoaded()) return;
+        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ModItems.RAW_WEED_BUD), Ingredient.of(Items.SHEARS), ModItems.WET_WEED_BUD)
                 .addResult(ModItems.HEMP_STRING)
                 .addResultWithChance(ModItems.HEMP_STRING, 0.5f)
                 .build(recipeOutput);

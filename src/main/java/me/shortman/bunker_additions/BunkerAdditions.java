@@ -1,16 +1,21 @@
 package me.shortman.bunker_additions;
 
-import me.shortman.bunker_additions.client.gui.creative_tabs.ModCreativeModeTabs;
+import me.shortman.bunker_additions.client.screen.DryingTableScreen;
+import me.shortman.bunker_additions.common.registry.ModCreativeModeTabs;
 import me.shortman.bunker_additions.common.Configuration;
 import me.shortman.bunker_additions.common.entity.renderer.DryingTableEntityRenderer;
 import me.shortman.bunker_additions.common.item.properties.ModItemProperties;
 import me.shortman.bunker_additions.common.registry.*;
 import me.shortman.bunker_additions.integration.FarmersDelightIntegration;
 import me.shortman.bunker_additions.common.effect.ModEffects;
+import me.shortman.bunker_additions.integration.ThirstIntegration;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.slf4j.Logger;
 
@@ -50,14 +55,24 @@ public class BunkerAdditions {
 
         ModBlockEntities.register(modEventBus);
 
-        FarmersDelightIntegration.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
+
+        ModRecipes.register(modEventBus);
+
+        if (ModList.get().isLoaded("thirst")) {
+            ThirstIntegration.register(modEventBus);
+        }
+        if (ModList.get().isLoaded("farmersdelight")) {
+            FarmersDelightIntegration.register(modEventBus);
+        }
+
+
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Configuration.COMMON_CONFIG);
 
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-
     }
 
     @SubscribeEvent
@@ -82,6 +97,15 @@ public class BunkerAdditions {
         public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.DRYING_TABLE_BLOCK_ENTITY.get(), DryingTableEntityRenderer::new);
         }
+
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(ModMenuTypes.DRYING_TABLE_MENU.get(), DryingTableScreen::new);
+        }
+    }
+
+    public static ResourceLocation resource(String path) {
+        return ResourceLocation.fromNamespaceAndPath(BunkerAdditions.MOD_ID, path);
     }
 
 }
